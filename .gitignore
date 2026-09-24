@@ -1,1 +1,10 @@
-(empty)
+# Python bytecode and caches
+__pycache__/
+*.pyc
+
+# Database files (generated data)
+data/*.db
+
+# Environment and secrets
+.env
+.env.local

@@ -14,3 +14,30 @@
 ## المتطلبات
 
 بايثون 3.11
+
+## تشغيل المرحلة 1 (جلب البيانات والتحقق من السلامة)
+
+تثبيت الاعتماديات:
+
+```bash
+pip install -r requirements.txt
+pip install -r requirements-dev.txt   # لتشغيل الاختبارات فقط
+```
+
+جلب بيانات شموع BTCUSDT لآخر 30 يومًا على الفريمات 15m و 1h و 4h (يُخزَّن في data/candles.db):
+
+```bash
+python -m src.cli fetch --symbols BTCUSDT --intervals 15m 1h 4h --days 30
+```
+
+فحص سلامة البيانات المخزنة وطباعة تقرير بالفجوات والمخالفات:
+
+```bash
+python -m src.cli check --symbols BTCUSDT --intervals 15m 1h 4h
+```
+
+تشغيل الاختبارات (بدون إنترنت):
+
+```bash
+python -m pytest tests
+```
